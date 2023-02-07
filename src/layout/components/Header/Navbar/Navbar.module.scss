@@ -1,0 +1,22 @@
+.primary-navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-item {
+    list-style: none;
+    margin-left: 18px;
+}
+
+.title {
+    color: var(--unactive-text-color);
+    &.active {
+        color: #fff;
+        cursor: default;
+        pointer-events: none;
+        font-weight: 600;
+    }
+    &:hover {
+        color: #b3b3b3;
+    }
+}

@@ -1,1 +1,66 @@
 @import 'normalize.css';
+:root {
+    --primary: #e50914;
+    --text-color: #fff;
+    --unactive-text-color: #e5e5e5;
+    --theme-color: #141414;
+
+    // Default layout
+    --default-layout-header-height: 68px;
+    --default-layout-footer-height: 210px;
+    --default-layout-width: 100%;
+
+    --font-family: 'NetflixSans', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-rendering: optimizeSpeed;
+    color: var(--text-color);
+    background-color: var(--theme-color);
+    overflow-y: overlay;
+    user-select: none;
+    cursor: default;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    text-decoration: none;
+}
+
+// Fonts embeded
+@font-face {
+    font-family: NetflixSans;
+    src: url('/assets/fonts/NetflixSans-Bold.otf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: NetflixSans;
+    src: url('/assets/fonts/NetflixSans-Medium.otf');
+    font-weight: 600;
+}
+@font-face {
+    font-family: NetflixSans;
+    src: url('/assets/fonts/NetflixSans-Regular.otf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: NetflixSans;
+    src: url('/assets/fonts/NetflixSans-Light.otf');
+    font-weight: 300;
+}

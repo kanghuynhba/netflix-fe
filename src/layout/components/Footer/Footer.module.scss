@@ -1,0 +1,10 @@
+.wrapper {
+    height: var(--default-layout-footer-height, 210px);
+}
+
+.inner {
+    max-width: 980px;
+    margin: 20px auto 0;
+    padding: 0 4%;
+    color: grey;
+}
