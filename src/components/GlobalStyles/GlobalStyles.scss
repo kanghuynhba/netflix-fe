@@ -1,6 +1,8 @@
 @import 'normalize.css';
 :root {
     --primary: #e50914;
+    --white: #fff;
+    --black: #000;
     --text-color: #fff;
     --unactive-text-color: #e5e5e5;
     --theme-color: #141414;
@@ -31,7 +33,9 @@ body {
     user-select: none;
     cursor: default;
 }
-
+li {
+    list-style: none;
+}
 button,
 input,
 [tabindex] {
@@ -41,6 +45,7 @@ input,
 
 a[href] {
     text-decoration: none;
+    color: var(--text-color);
 }
 
 // Fonts embeded
