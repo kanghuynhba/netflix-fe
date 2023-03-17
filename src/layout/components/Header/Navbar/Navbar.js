@@ -1,9 +1,5 @@
-import classNames from 'classnames/bind';
-import styles from './Navbar.module.scss';
-
-const cx = classNames.bind(styles);
-function Navbar({ children }) {
-    return <ul className={cx('primary-navbar')}>{children}</ul>;
+function Navbar({ children, className }) {
+    return <ul className={className}>{children}</ul>;
 }
 
 export default Navbar;
