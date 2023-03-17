@@ -1,0 +1,14 @@
+.wrapper {
+    bottom: 35%;
+    left: 4%;
+    top: 0;
+    width: 36%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 10;
+}
+.title {
+    width: 100%;
+}

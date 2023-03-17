@@ -9,9 +9,13 @@
     transition-timing-function: ease-in;
     transition: all 0.5s;
 }
+.black-header {
+    background-color: var(--black);
+}
 
 .inner {
     display: flex;
+    position: relative;
     width: var(--default-layout-width);
     padding: 0 60px;
     align-items: center;
@@ -21,10 +25,42 @@
     display: flex;
     margin-right: 25px;
 }
-
+.primary-navbar {
+    display: flex;
+    align-items: center;
+}
 .secondary-navbar {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1;
+}
+.nav-item {
+    margin-right: 15px;
+    cursor: pointer;
+}
+.bell-icon {
+    position: relative;
+}
+.account-menu-item {
+    display: flex;
+    align-items: center;
+    &:hover {
+        .caret {
+            transform: rotate(180deg);
+        }
+    }
+}
+.profile-icon {
+    border-radius: 4px;
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+}
+.caret {
+    border-color: var(--white) transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    margin-left: 10px;
+    transition: transform 367ms cubic-bezier(0.21, 0, 0.07, 1);
 }
