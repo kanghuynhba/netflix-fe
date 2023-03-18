@@ -48,3 +48,22 @@
     top: auto;
     z-index: 8;
 }
+.more-actions {
+    position: absolute;
+    right: 0;
+    bottom: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 10;
+}
+.age-limit {
+    display: flex;
+    background-color: rgba(51, 51, 51, 0.6);
+    padding: 10px 66px 10px 16px;
+    border-left: 3px solid #fff;
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-left: 22px;
+}
