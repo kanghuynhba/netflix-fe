@@ -12,7 +12,12 @@ function Button({
     onClick,
     leftIcon,
     className,
+    ...passProps
 }) {
+    const props = {
+        onClick,
+        ...passProps,
+    };
     let Comp = 'button';
     const classes = cx('wrapper', {
         [className]: className,
@@ -21,8 +26,10 @@ function Button({
         iconOnly,
     });
     return (
-        <Comp className={classes}>
-            <span className={cx('icon')}>{leftIcon}</span>
+        <Comp className={classes} {...props}>
+            <span className={cx('icon')} onClick={onClick}>
+                {leftIcon}
+            </span>
             {iconOnly || <span className={cx('title')}>{children}</span>}
         </Comp>
     );

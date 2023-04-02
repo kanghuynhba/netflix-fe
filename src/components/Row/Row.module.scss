@@ -1,0 +1,43 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    margin: 42px 0;
+}
+
+.row-header {
+    display: flex;
+    margin: 0 76px 14px 60px;
+    font-size: 2.6rem;
+    color: #e5e5e5;
+    font-weight: 600;
+}
+.slider-container {
+    padding-left: 60px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper-item {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 4px;
+}
+.item-image {
+    height: 146px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+.item-title {
+    position: absolute;
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: white;
+    display: inline-block;
+}
