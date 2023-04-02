@@ -4,18 +4,12 @@ import { InfoIcon, PlayIcon } from '~/components/Icons';
 import styles from './Content.module.scss';
 
 const cx = classNames.bind(styles);
-function Content() {
+function Content({ data, showDecs = 0 }) {
+    const shortDecs = (string = ' ') => string.slice(0, string.indexOf('.') + 1);
     return (
         <div className={cx('wrapper')}>
-            <img
-                className={cx('title')}
-                src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABb7gnkfCIMCeGqwGW5uMzjuAu_Ck_I8bCUCMgi-9nkG5LnOdaE9zRAgXVz7OIiLRYqqdZA5M99YZQhVryW5I_Pm61IB4PAsEesdKnxctMhiuZxYYL_BdONxHvHJPe4etx1j-86lBL-pKTvD49bzwsuDu5D5Z7vfU-_sF2HSxpwtaoOnpa-TUvA.webp?r=45e"
-                alt="friend"
-            />
-            <div className={cx('decs')}>
-                When a young girl stows away on the ship of a legendary sea monster hunter, they launch an epic journey
-                into uncharted waters — and make history to boot.
-            </div>
+            <h1 className={cx('title')}>{data?.name}</h1>
+            {showDecs !== 1 && <div className={cx('decs')}>{shortDecs(data?.overview)}</div>}
             <div className={cx('actions')}>
                 <Button leftIcon={<PlayIcon />} normal>
                     Play
