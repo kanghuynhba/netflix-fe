@@ -10,7 +10,7 @@ import * as trailerService from '~/services/trailerService';
 import Content from './Content/Content';
 
 const cx = classNames.bind(styles);
-function BillBoard() {
+function BillBoard({ discover = '', type = '' }) {
     const [movie, setMovie] = useState();
     const [isReplay, setIsReplay] = useState(false);
     const [volumeClick, setVolumeClick] = useState(false);
@@ -26,9 +26,9 @@ function BillBoard() {
     // Get API Billboard
     useEffect(() => {
         const fetchApi = async () => {
-            const results = await billboardService.billboard();
+            const results = await billboardService.billboard(discover);
             const randomMovie = results[Math.floor(Math.random() * (results.length - 1))];
-            const trailerResults = await trailerService.trailer(randomMovie.id);
+            const trailerResults = await trailerService.trailer(type, randomMovie.id);
             for (let i = 0; i < trailerResults.length; i++) {
                 if (trailerResults[i].type === 'Trailer') {
                     setMovie({ key: trailerResults[i].key, ...randomMovie });

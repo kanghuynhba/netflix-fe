@@ -106,11 +106,11 @@ function Header() {
     return (
         <header className={cx('wrapper', `${isScroll ? 'black-header' : ''}`)}>
             <div className={cx('inner')}>
-                <Link className={cx('logo-link')} to={config.routes.home}>
+                <Link className={cx('logo-link')} to={config.routes.browse}>
                     <img src={images.logo} alt="Netflix" />
                 </Link>
                 <Navbar className={cx('primary-navbar')}>
-                    <NavbarItem title="Home" to={config.routes.home} />
+                    <NavbarItem title="Home" to={config.routes.browse} />
                     <NavbarItem title="TV Shows" to={config.routes.tvshows} />
                     <NavbarItem title="Movies" to={config.routes.movies} />
                 </Navbar>
