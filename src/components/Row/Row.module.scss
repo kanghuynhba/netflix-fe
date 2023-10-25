@@ -1,9 +1,28 @@
 .wrapper {
     position: relative;
     width: 100%;
-    margin: 42px 0;
+    margin: 48px 0;
+    &:hover {
+        .next {
+            position: absolute;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            box-sizing: content-box;
+            right: 1%;
+            top: 23.7%;
+            content: '';
+            background-color: hsla(0, 0%, 8%, 0.7);
+            height: 146px;
+            width: 60px;
+            font-size: 4rem;
+        }
+    }
 }
-
+.next {
+    display: none;
+}
 .row-header {
     display: flex;
     margin: 0 76px 14px 60px;
