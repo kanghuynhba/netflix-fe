@@ -1,4 +1,5 @@
 const routes = {
+    home: '/',
     browse: '/browse',
     movies: '/movies',
     tvshows: '/tvshows',

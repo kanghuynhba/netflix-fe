@@ -9,7 +9,7 @@ function Account() {
     return (
         <div className={cx('profile')}>
             <h1 className={cx('title')}>Who's watching?</h1>
-            <Link to={config.routes.browse}>
+            <Link className={cx('profile-link')} to={config.routes.browse}>
                 <Image
                     className={cx('profile-icon')}
                     src="https://www.netflix.com/SwitchProfile?tkn=KIW34Q76SJD7RBFZUFH46WDEUQ"
