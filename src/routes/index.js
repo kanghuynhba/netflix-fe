@@ -8,7 +8,7 @@ import TVShows from '~/pages/TVShows';
 
 // Public routes
 const publicRoutes = [
-    { path: config.routes.home, component: Account },
+    { path: config.routes.home, component: Account, layout: null },
     { path: config.routes.browse, component: Home },
     { path: config.routes.movies, component: Movies },
     { path: config.routes.tvshows, component: TVShows },
