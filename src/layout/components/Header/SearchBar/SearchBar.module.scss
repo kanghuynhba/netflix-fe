@@ -1,0 +1,40 @@
+.search-box {
+    position: relative;
+    display: inline-block;
+    .search-btn {
+        position: absolute;
+        top: 50%;
+        right: 88%;
+        background-color: transparent;
+        height: 24px;
+        color: var(--text-color);
+        transform: translateY(-50%);
+        z-index: 1;
+        cursor: pointer;
+    }
+    .search-input {
+        width: 0px;
+        border: solid 1px rgba(255, 255, 255, 0.85);
+        background: rgba(0, 0, 0, 0.85);
+        font-size: 1.4rem;
+        color: #fff;
+        opacity: 0;
+        transition: ease all 0.3s, ease opacity;
+    }
+    .toggle {
+        opacity: 1;
+        width: 274px;
+        height: 34px;
+        padding: 7px 20px 7px 40px;
+        opacity: 1;
+    }
+}
+.clear {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
