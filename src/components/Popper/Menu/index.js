@@ -8,6 +8,9 @@ const cx = classNames.bind(styles);
 
 function Menu({ children, items = [], Component, parent = '' }) {
     const renderItem = () => {
+        if (items.length > 7) {
+            items.splice(7, items.length);
+        }
         return items.map((item, index) => <Component key={index} data={item} />);
     };
     const renderResult = (attrs) => (

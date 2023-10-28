@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 408px;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.25);
+    color: var(--text-color);
+    line-height: 1;
+    &::after {
+        position: absolute;
+        content: '';
+        background: #e5e5e5;
+        height: 2px;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+    &:hover {
+        background-color: #000;
+    }
+}
+.title-card {
+    max-height: 100px;
+    padding: 16px;
+}
+.element-text {
+    padding: 16px 16px 16px 0;
+    flex: auto;
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
