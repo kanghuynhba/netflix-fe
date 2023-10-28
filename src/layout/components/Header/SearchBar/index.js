@@ -6,11 +6,15 @@ import { SearchIcon } from '~/components/Icons';
 import styles from './SearchBar.module.scss';
 import { useDebounce } from '~/hooks';
 import * as searchService from '~/services/searchService';
+import HeadlessTippy from '@tippyjs/react/headless';
+import SearchItem from './SearchItem';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 
 const cx = classNames.bind(styles);
 
 function SearchBar() {
     const [isOpenSearch, setIsOpenSearch] = useState(false);
+    const [showResult, setShowResult] = useState(true);
     const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState([]);
 
@@ -28,17 +32,17 @@ function SearchBar() {
     const handleClosed = (e) => {
         e.stopPropagation();
     };
-    const handleInputChange = (e) => {
-        setSearchValue(e.target.value);
-        if (searchValue) {
-        }
+    const handleHideResult = () => {
+        setShowResult(false);
     };
     useEffect(() => {
         window.addEventListener('scroll', function () {
+            handleClear();
             setIsOpenSearch(false);
         });
         return () => {
             window.removeEventListener('scroll', function () {
+                handleClear();
                 setIsOpenSearch(false);
             });
         };
@@ -47,7 +51,6 @@ function SearchBar() {
         if (!debounceValue) {
             setSearchResults([]);
             return;
-        } else {
         }
 
         const fetchApi = async () => {
@@ -56,24 +59,50 @@ function SearchBar() {
         };
         fetchApi();
     }, [debounceValue]);
-    console.log(searchResults);
     return (
-        <div className={cx('search-box')} onClick={handleClosed}>
-            <button className={cx('search-btn')} onClick={handleOpenSearch}>
-                <SearchIcon className={cx('search-icon')} />
-            </button>
-            <input
-                ref={inputRef}
-                value={searchValue}
-                onChange={handleInputChange}
-                className={cx('search-input', `${isOpenSearch ? 'toggle' : ''}`)}
-                placeholder="Titles, people, genres"
-            />
-            {!!searchValue && (
-                <span className={cx('clear')} onClick={handleClear}>
-                    <FontAwesomeIcon icon={faClose} />
-                </span>
-            )}
+        <div>
+            <HeadlessTippy
+                interactive
+                visible={showResult && searchResults.length > 0}
+                render={(attrs) => {
+                    if (searchResults.length > 7) {
+                        searchResults.splice(7, searchResults.length);
+                    }
+                    return (
+                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                            <PopperWrapper>
+                                {searchResults.map(
+                                    (result) =>
+                                        (result.backdrop_path || result.poster_path) && (
+                                            <SearchItem key={result?.id} data={result} />
+                                        ),
+                                )}
+                            </PopperWrapper>
+                        </div>
+                    );
+                }}
+                onClickOutside={handleHideResult}
+            >
+                <div className={cx('search-box')} onClick={handleClosed}>
+                    <button className={cx('search-btn')} onClick={handleOpenSearch}>
+                        <SearchIcon className={cx('search-icon')} />
+                    </button>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        onChange={(e) => {
+                            setSearchValue(e.target.value);
+                        }}
+                        className={cx('search-input', `${isOpenSearch ? 'toggle' : ''}`)}
+                        placeholder="Titles, people, genres"
+                    />
+                    {!!searchValue && (
+                        <span className={cx('clear')} onClick={handleClear}>
+                            <FontAwesomeIcon icon={faClose} />
+                        </span>
+                    )}
+                </div>
+            </HeadlessTippy>
         </div>
     );
 }

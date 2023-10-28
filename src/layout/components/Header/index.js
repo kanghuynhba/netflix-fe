@@ -3,7 +3,7 @@ import Image from '~/components/Image';
 import Navbar, { NavbarItem } from './Navbar';
 import config from '~/config';
 import { Link } from 'react-router-dom';
-import Search from './Search';
+import SearchBar from './SearchBar';
 import { BellIcon, PencilIcon, TransferIcon, AvatarIcon, QuestionIcon } from '~/components/Icons';
 import NotifyItem from '~/components/Popper/Menu/NotifyItem';
 
@@ -116,7 +116,7 @@ function Header() {
                 </Navbar>
                 <ul className={cx('secondary-navbar')}>
                     <div className={cx('nav-item')}>
-                        <Search />
+                        <SearchBar />
                     </div>
                     <div className={cx('nav-item')}>
                         <Link to={`/Kids`}>Kids</Link>

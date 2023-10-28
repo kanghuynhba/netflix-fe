@@ -21,7 +21,7 @@ function Row({ title, fetch }) {
             }
         };
         fetchApi();
-    }, []);
+    }, [fetch]);
     return (
         <div className={cx('wrapper')}>
             <h2 className={cx('row-header')}>{title}</h2>
@@ -30,9 +30,6 @@ function Row({ title, fetch }) {
                     <SliderItem key={movie?.id} movie={movie ? movie : ''} />
                 ))}
             </div>
-            <span className={cx('next')} onClick={handleNext}>
-                <FontAwesomeIcon icon={faAngleRight} />
-            </span>
         </div>
     );
 }

@@ -37,7 +37,7 @@ function BillBoard({ discover = '', type = '' }) {
         };
 
         fetchApi();
-    }, []);
+    }, [discover, type]);
     return (
         <div className={cx('wrapper')}>
             <Trailer
